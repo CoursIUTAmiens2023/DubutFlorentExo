@@ -1,5 +1,4 @@
-﻿
-namespace LibraryData.Code.Medias
+﻿namespace LibraryData.Code.Medias
 {
     public class Media
     {
@@ -19,19 +18,18 @@ namespace LibraryData.Code.Medias
             Console.Write($"Media : Titre : {m_Titre}, Référence : {m_Reference}, Nombre d'exemplaires : {m_Nombre_Exemplaire} ");
         }
 
-        public static Media operator + (Media p_Media, int p_Number)
+        public static Media operator +(Media p_Media, int p_Number)
         {
             p_Media.m_Nombre_Exemplaire += p_Number;
             return p_Media;
         }
 
-        public static Media operator - (Media p_Media, int p_Number)
+        public static Media operator -(Media p_Media, int p_Number)
         {
             if (p_Media.m_Nombre_Exemplaire <= 0)
                 throw new Exception($"Class Media : Le nombre de médias est déjà égale à 0");
             p_Media.m_Nombre_Exemplaire += p_Number;
             return p_Media;
         }
-
     }
 }

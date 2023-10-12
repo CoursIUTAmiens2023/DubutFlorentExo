@@ -1,7 +1,5 @@
-﻿using System.Runtime.CompilerServices;
-using LibraryData.Code;
+﻿using LibraryData.Code;
 using LibraryData.Code.Medias;
-using Library.Code.LibraryManager;
 
 namespace MaPremiereApplication
 {
@@ -9,8 +7,8 @@ namespace MaPremiereApplication
     {
         private static void Main(string[] p_Args)
         {
-            CD v_Media = new("Vivre pour le meilleur",195,15,"Johnny");
-            DVD v_Dvd = new("Le roi lion",2,1,100);
+            CD v_Media = new("Vivre pour le meilleur", 195, 15, "Johnny");
+            DVD v_Dvd = new("Le roi lion", 2, 1, 100);
 
             v_Media.AfficherInfos();
             v_Dvd.AfficherInfos();

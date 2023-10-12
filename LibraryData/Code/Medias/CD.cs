@@ -3,6 +3,7 @@
     public class CD : Media
     {
         private string m_Artiste { get; set; }
+
         public CD(string p_Titre, int p_Reference, int p_Nombre_Exemplaire, string p_Artiste) : base(p_Titre, p_Reference, p_Nombre_Exemplaire)
         {
             m_Artiste = p_Artiste;
