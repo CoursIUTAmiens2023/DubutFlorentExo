@@ -35,10 +35,10 @@ namespace Library.Code.LibraryManager
         {
             //Est-ce que le média existe dans la bibliothèque
             Media v_Media = m_Bibliotheque.Find(p_Trg => p_Trg.m_Reference == p_Media.m_Reference);
-            
+
             if (m_Bibliotheque.Contains(p_Media) && v_Media.m_Nombre_Exemplaire > 0)
             {
-                m_Emprunts.Add(new(){m_Utilisateur = p_Utilisateur, m_DateTime = DateTime.Now, m_Media = p_Media});
+                m_Emprunts.Add(new() { m_Utilisateur = p_Utilisateur, m_DateTime = DateTime.Now, m_Media = p_Media });
 
                 v_Media.m_Nombre_Exemplaire -= 1;
             }
@@ -59,17 +59,19 @@ namespace Library.Code.LibraryManager
                 Console.WriteLine("Cet emprunt n'existe pas");
             }
         }
+
         public IEnumerable<Media> RechercherMedia(string p_Recherche)
         {
             return this.m_Bibliotheque.FindAll(p_Trg => p_Trg.m_Titre == p_Recherche).AsEnumerable();
         }
+
         public void ListerMediasEmpruntesParUtilisateur(string p_Utilisateur)
         {
             IEnumerable<Emprunt> v_EmpruntsList = m_Emprunts.FindAll(p_P => p_P.m_Utilisateur == p_Utilisateur).AsEnumerable();
             if (v_EmpruntsList.Any())
             {
                 Console.WriteLine($"Utilisateur : {p_Utilisateur}");
-                foreach(Emprunt p_Emprunt in v_EmpruntsList)
+                foreach (Emprunt p_Emprunt in v_EmpruntsList)
                 {
                     Console.WriteLine($"Media : {p_Emprunt.m_Media.m_Reference}, Emprunté le : {p_Emprunt.m_DateTime}");
                 }
@@ -78,13 +80,13 @@ namespace Library.Code.LibraryManager
             {
                 Console.WriteLine($"Aucun emprunt n'as été trouvé pour l'utilisateur : {p_Utilisateur}");
             }
-            
         }
+
         public void AfficherStatistique()
         {
             Console.WriteLine($"Nombre total de médias : {m_Bibliotheque.Count}\n");
             Console.WriteLine("Nombre de médias disponible : ");
-            foreach(Media p_Media in m_Bibliotheque)
+            foreach (Media p_Media in m_Bibliotheque)
             {
                 Console.WriteLine($"Référence : {p_Media.m_Reference}, Titre : {p_Media.m_Titre}, Disponible : {p_Media.m_Nombre_Exemplaire}");
             }
@@ -93,7 +95,6 @@ namespace Library.Code.LibraryManager
             {
                 Console.WriteLine($"Media : {p_Emprunt.m_Media.m_Reference}, Utilisateur : {p_Emprunt.m_Utilisateur}, Emprunté le : {p_Emprunt.m_DateTime}");
             }
-
         }
     }
 }
