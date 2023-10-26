@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+    <PackageReference Include="SpecFlow" Version="3.9.74" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
